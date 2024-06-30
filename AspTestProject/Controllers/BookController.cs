@@ -15,6 +15,7 @@ namespace AspTestProject.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            GetBasePath();
             var rng = new Random();
             var collection = Enumerable.Range(1, 5).Select(index => new WeatherForecast
                 {
@@ -25,6 +26,14 @@ namespace AspTestProject.Controllers
                 .ToArray();
 
             return Ok(collection);
+        }
+        private string GetBasePath()
+        {
+            var currentDirectoryPath = Directory.GetCurrentDirectory();
+            var parentDirectoryPath = Directory.GetParent(currentDirectoryPath).FullName;
+            var basePath = Path.Combine(parentDirectoryPath, "AspTestProject");
+
+            return basePath;
         }
     }
 
