@@ -44,11 +44,16 @@ namespace AspTestProject
         {
             service.AddScoped<IUnitOfWork, UnitOfWork>();
             service.AddScoped<IOrganizationService, OrganizationService>();
+            service.AddScoped<IPasswordValidationService, PasswordValidationService>();
+            service.AddScoped<IUserService, UserService>();
+            service.AddScoped<IAuthService, AuthService>();
+            service.AddScoped<ITokenGeneratorService, TokenGeneratorService>();
         }
 
         private static void RegistrationRepositories(IServiceCollection service)
         {
             service.AddScoped<IOrganiztionRepository, OrganizationRepository>();
+            service.AddScoped<IUserRepository, UserRepository>();
         }
 
         private static void RegistrationMapperProfile(IServiceCollection service)

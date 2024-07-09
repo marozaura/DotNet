@@ -1,11 +1,11 @@
 ﻿using AspTestProject.BLL.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspTestProject.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class OrganizationController : ControllerBase
+    [Authorize]
+    public class OrganizationController : ApiControllerBase
     {
         private readonly IOrganizationService _organizationService;
 

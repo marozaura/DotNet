@@ -20,7 +20,7 @@ public class OrganizationRepository: IOrganiztionRepository
             {
                 Id = x.Id,
                 Name = x.Name,
-                UserName = x.User.Name
+                UserName = x.User.Username
             }).ToListAsync();
     }
 }

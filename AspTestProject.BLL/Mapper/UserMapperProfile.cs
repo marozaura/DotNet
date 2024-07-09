@@ -9,6 +9,7 @@ namespace AspTestProject.BLL.Mapper
         public UserMapperProfile()
         {
             CreateMap<OrganizationDataModel, OrganiztionModel>();
+            CreateMap<UserCreateModel, UserCreateDataModel>();
         }
     }
 }
