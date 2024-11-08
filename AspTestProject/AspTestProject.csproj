@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MassTransit" Version="8.3.1" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.31">
@@ -25,6 +28,7 @@
     <ProjectReference Include="..\AspTestProject.BLL\AspTestProject.BLL.csproj" />
     <ProjectReference Include="..\AspTestProject.Common\AspTestProject.Common.csproj" />
     <ProjectReference Include="..\AspTestProject.DAL\AspTestProject.DAL.csproj" />
+    <ProjectReference Include="..\SharedModels\SharedModels.csproj" />
   </ItemGroup>
 
 </Project>

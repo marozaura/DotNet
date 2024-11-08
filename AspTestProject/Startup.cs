@@ -4,10 +4,12 @@ using AspTestProject.BLL;
 using AspTestProject.BLL.Services.Implementations;
 using AspTestProject.BLL.Services.Interfaces;
 using AspTestProject.Common.Settings;
+using AspTestProject.Consumers;
 using AspTestProject.DAL;
 using AspTestProject.DAL.Infrastructure;
 using AspTestProject.DAL.Repositories.Implementations;
 using AspTestProject.DAL.Repositories.Interfaces;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -27,6 +29,17 @@ namespace AspTestProject
 
         public void ConfigureServices(IServiceCollection service)
         {
+            service.AddMassTransit(x =>
+            {
+                x.AddConsumer<OrderCreatedConsumer>(); 
+
+                x.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.ConfigureEndpoints(context); 
+                });
+            });
+
+
             service.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(_configuration.GetConnectionString("DefaultConnection")));
             
