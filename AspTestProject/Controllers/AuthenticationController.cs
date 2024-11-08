@@ -19,6 +19,7 @@ namespace AspTestProject.Controllers
 
         [AllowAnonymous]
         [HttpPost]
+        [Route("login")]
         public async Task<IActionResult> Login(LoginRequestModel loginRequestModel)
         {
             var loginResponseModel = await _authService.PerformLoginAsync(loginRequestModel);
@@ -33,6 +34,7 @@ namespace AspTestProject.Controllers
 
         [Authorize]
         [HttpGet]
+        [Route("logout")]
         public IActionResult LogOut()
         {
             HttpContext.Response.Cookies.Delete("UserId");
